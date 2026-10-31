@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#142d4e">
+<title>UPANGA FAMILY – MICHEZO</title>
+<style>
+:root{--navy:#142d4e;--blue:#245b91;--bg:#f3f6fa;--ink:#172334;--muted:#687789;--line:#e2e8f0;--white:#fff;--green:#16835d;--red:#c44747;--gold:#a56a12}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#142d4e,#245b91);color:white;padding:22px 16px 26px}
+.wrap{max-width:1050px;margin:auto}.brand{font-size:12px;letter-spacing:2px;opacity:.85}.headrow{display:flex;justify-content:space-between;align-items:center;gap:12px}.headrow h1{font-size:23px;margin:7px 0 4px}.headrow p{margin:0;color:#dbe8f5;font-size:13px}
+.demo{font-size:11px;background:#fff2;border:1px solid #ffffff55;padding:7px 10px;border-radius:20px;white-space:nowrap}
+nav{display:flex;gap:7px;overflow:auto;padding:12px 12px 0;max-width:1050px;margin:auto}
+nav button{border:0;background:#ffffff20;color:white;border-radius:9px;padding:9px 12px;white-space:nowrap;font-size:13px}
+nav button.active{background:white;color:var(--navy);font-weight:bold}
+main{max-width:1050px;margin:18px auto;padding:0 12px 40px}
+.notice{background:#fff8e8;border:1px solid #f0d9a9;color:#684c19;padding:12px;border-radius:11px;font-size:12px;line-height:1.5;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:11px}
+.card{background:white;border:1px solid var(--line);border-radius:13px;padding:15px;box-shadow:0 2px 8px #142d4e08}
+.metric small{display:block;color:var(--muted);font-size:12px}.metric strong{display:block;font-size:25px;margin-top:8px;color:var(--navy)}
+.section{display:none}.section.active{display:block}
+.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:18px 0 12px}.section-title h2{font-size:18px;margin:0}
+.btn{border:0;background:var(--navy);color:white;border-radius:9px;padding:10px 13px;font-weight:600;font-size:13px;cursor:pointer}
+.btn.secondary{background:#eaf0f7;color:var(--navy)}.btn.danger{background:#fff0f0;color:var(--red)}
+.btn.green{background:var(--green)}.btn.small{padding:7px 9px;font-size:12px}
+.tablewrap{overflow:auto;background:white;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;min-width:590px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);font-size:13px}th{background:#f8fafc;color:#526174;font-size:11px;text-transform:uppercase}
+.tag{display:inline-block;padding:4px 8px;border-radius:20px;font-size:11px;background:#eaf7f1;color:var(--green)}.tag.red{background:#fff0f0;color:var(--red)}
+.empty{padding:25px;text-align:center;color:var(--muted);font-size:13px}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}
+input,select{width:100%;padding:11px;border:1px solid #ccd6e2;border-radius:9px;background:white;font-size:14px;color:var(--ink)}
+.actions{display:flex;gap:7px;flex-wrap:wrap}.muted{color:var(--muted);font-size:12px}
+.panel{background:white;border:1px solid var(--line);border-radius:12px;padding:15px;margin-bottom:13px}
+footer{text-align:center;color:#8a96a5;font-size:11px;padding:20px}
+@media(max-width:520px){.headrow h1{font-size:19px}.demo{font-size:10px}.section-title{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="headrow">
+   <div><div class="brand">UPANGA FAMILY</div><h1>MICHEZO</h1><p>Jumatatu hadi Ijumaa · Mfumo wa kikundi</p></div>
+   <div class="demo">MFANO / DEMO</div>
+  </div>
+ </div>
+ <nav id="nav">
+  <button class="active" data-tab="dashboard">Dashboard</button>
+  <button data-tab="wanachama">Wanachama</button>
+  <button data-tab="malipo">Waliolipa</button>
+  <button data-tab="miss">Waliomiss</button>
+  <button data-tab="wapokeaji">Waliopokea</button>
+  <button data-tab="madeni">Madeni</button>
+  <button data-tab="ratiba">Ratiba</button>
+ </nav>
+</header>
+<main>
+ <div class="notice"><b>TAHADHARI:</b> Hii ni toleo la mwanzo la kujaribu muonekano na kazi za msingi. Data huhifadhiwa kwenye browser ya kifaa hiki tu. Bado HAINA login salama, database ya pamoja wala ruhusa za wanachama. Usitumie taarifa halisi za fedha au simu za wanachama kwenye toleo hili.</div>
+
+ <section id="dashboard" class="section active">
+  <div class="section-title"><h2>Muhtasari wa kikundi</h2><span class="muted" id="today"></span></div>
+  <div class="grid">
+   <div class="card metric"><small>Wanachama</small><strong id="mMembers">0</strong></div>
+   <div class="card metric"><small>Waliolipa</small><strong id="mPaid">0</strong></div>
+   <div class="card metric"><small>Waliomiss</small><strong id="mMiss">0</strong></div>
+   <div class="card metric"><small>Waliopokea</small><strong id="mReceived">0</strong></div>
+   <div class="card metric"><small>Jumla ya madeni</small><strong id="mDebt">TSh 0</strong></div>
+  </div>
+  <div class="section-title"><h2>Shughuli za karibuni</h2></div>
+  <div class="panel muted">Muhtasari utajazwa kadiri utakavyoingiza wanachama na kumbukumbu za majaribio.</div>
+ </section>
+
+ <section id="wanachama" class="section">
+  <div class="section-title"><h2>Wanachama</h2><button class="btn" onclick="addMember()">+ Ongeza mwanachama</button></div>
+  <div class="panel"><div class="formgrid">
+   <div><label>Jina la mwanachama</label><input id="memberName" placeholder="Mfano: Juma Ally"></div>
+   <div><label>Namba ya simu (si lazima kwenye demo)</label><input id="memberPhone" placeholder="07XXXXXXXX" inputmode="tel"></div>
+  </div><p><button class="btn green" onclick="saveMember()">Hifadhi mwanachama</button></p></div>
+  <div id="membersTable" class="tablewrap"></div>
+ </section>
+
+ <section id="malipo" class="section">
+  <div class="section-title"><h2>Waliolipa</h2></div>
+  <div class="panel"><div class="formgrid">
+   <div><label>Mwanachama</label><select id="payMember"></select></div>
+   <div><label>Siku ya kazi</label><select id="payDay"><option>Jumatatu</option><option>Jumanne</option><option>Jumatano</option><option>Alhamisi</option><option>Ijumaa</option></select></div>
+   <div><label>Kiasi (TSh)</label><input id="payAmount" type="number" min="0" placeholder="10000"></div>
+   <div><label>Tarehe</label><input id="payDate" type="date"></div>
+  </div><p><button class="btn green" onclick="addPayment()">Rekodi malipo</button></p></div>
+  <div id="paymentsTable" class="tablewrap"></div>
+ </section>
+
+ <section id="miss" class="section">
+  <div class="section-title"><h2>Waliomiss</h2></div>
+  <div class="panel"><div class="formgrid">
+   <div><label>Mwanachama</label><select id="missMember"></select></div>
+   <div><label>Siku</label><select id="missDay"><option>Jumatatu</option><option>Jumanne</option><option>Jumatano</option><option>Alhamisi</option><option>Ijumaa</option></select></div>
+   <div><label>Tarehe</label><input id="missDate" type="date"></div>
+   <div><label>Maelezo (hiari)</label><input id="missNote" placeholder="Sababu / maelezo"></div>
+  </div><p><button class="btn" onclick="addMiss()">Rekodi aliyemiss</button></p></div>
+  <div id="missTable" class="tablewrap"></div>
+ </section>
+
+ <section id="wapokeaji" class="section">
+  <div class="section-title"><h2>Waliopokea</h2></div>
+  <div class="panel"><div class="formgrid">
+   <div><label>Mwanachama</label><select id="receiveMember"></select></div>
+   <div><label>Kiasi alichopokea (TSh)</label><input id="receiveAmount" type="number" min="0" placeholder="50000"></div>
+   <div><label>Tarehe ya kupokea</label><input id="receiveDate" type="date"></div>
+  </div><p><button class="btn green" onclick="addReceived()">Rekodi mpokeaji</button></p></div>
+  <div id="receivedTable" class="tablewrap"></div>
+ </section>
+
+ <section id="madeni" class="section">
+  <div class="section-title"><h2>Madeni</h2></div>
+  <div class="panel"><div class="formgrid">
+   <div><label>Mwanachama</label><select id="debtMember"></select></div>
+   <div><label>Kiasi cha deni (TSh)</label><input id="debtAmount" type="number" min="0" placeholder="10000"></div>
+   <div><label>Maelezo</label><input id="debtNote" placeholder="Maelezo ya deni"></div>
+  </div><p><button class="btn" onclick="addDebt()">Ongeza deni</button></p></div>
+  <div id="debtsTable" class="tablewrap"></div>
+ </section>
+
+ <section id="ratiba" class="section">
+  <div class="section-title"><h2>Ratiba ya kupokea</h2></div>
+  <div class="panel"><div class="formgrid">
+   <div><label>Mwanachama</label><select id="scheduleMember"></select></div>
+   <div><label>Siku ya kupokea</label><select id="scheduleDay"><option>Jumatatu</option><option>Jumanne</option><option>Jumatano</option><option>Alhamisi</option><option>Ijumaa</option></select></div>
+   <div><label>Tarehe</label><input id="scheduleDate" type="date"></div>
+  </div><p><button class="btn" onclick="addSchedule()">Weka kwenye ratiba</button></p></div>
+  <div id="scheduleTable" class="tablewrap"></div>
+ </section>
+ <footer>UPANGA FAMILY – MICHEZO · Toleo la majaribio</footer>
+</main>
+<script>
+const KEY='upanga_family_demo_v1';
+let db=JSON.parse(localStorage.getItem(KEY)||'{"members":[],"payments":[],"misses":[],"received":[],"debts":[],"schedule":[]}');
+const money=n=>'TSh '+Number(n||0).toLocaleString('en-US');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const val=id=>document.getElementById(id).value.trim();
+function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
+function memberName(id){return db.members.find(m=>m.id===id)?.name||'Mwanachama aliyefutwa'}
+function options(id){let el=document.getElementById(id),old=el.value;el.innerHTML='<option value="">Chagua mwanachama</option>'+db.members.map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join('');if(db.members.some(m=>m.id===old))el.value=old}
+function table(rows,heads){if(!rows.length)return '<div class="empty">Bado hakuna taarifa.</div>';return '<table><thead><tr>'+heads.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+rows.join('')+'</tbody></table>'}
+function removeItem(type,id){if(confirm('Una uhakika unataka kufuta rekodi hii kwenye DEMO?')){db[type]=db[type].filter(x=>x.id!==id);save()}}
+function editMember(id){let m=db.members.find(x=>x.id===id);let n=prompt('Hariri jina:',m.name);if(n===null)return;if(!n.trim())return alert('Jina haliwezi kuwa tupu');let p=prompt('Hariri namba ya simu:',m.phone||'');if(p===null)return;m.name=n.trim();m.phone=p.trim();save()}
+function addMember(){let n=val('memberName'),p=val('memberPhone');if(!n)return alert('Andika jina la mwanachama');db.members.push({id:crypto.randomUUID(),name:n,phone:p});document.getElementById('memberName').value='';document.getElementById('memberPhone').value='';save()}
+function addPayment(){let member=val('payMember'),amount=+val('payAmount');if(!member||amount<=0)return alert('Chagua mwanachama na kiasi sahihi');db.payments.push({id:crypto.randomUUID(),member,day:val('payDay'),amount,date:val('payDate')});document.getElementById('payAmount').value='';save()}
+function addMiss(){let member=val('missMember');if(!member)return alert('Chagua mwanachama');db.misses.push({id:crypto.randomUUID(),member,day:val('missDay'),date:val('missDate'),note:val('missNote')});document.getElementById('missNote').value='';save()}
+function addReceived(){let member=val('receiveMember'),amount=+val('receiveAmount');if(!member||amount<=0)return alert('Chagua mwanachama na kiasi sahihi');db.received.push({id:crypto.randomUUID(),member,amount,date:val('receiveDate')});document.getElementById('receiveAmount').value='';save()}
+function addDebt(){let member=val('debtMember'),amount=+val('debtAmount');if(!member||amount<=0)return alert('Chagua mwanachama na kiasi sahihi');db.debts.push({id:crypto.randomUUID(),member,amount,note:val('debtNote')});document.getElementById('debtAmount').value='';document.getElementById('debtNote').value='';save()}
+function addSchedule(){let member=val('scheduleMember');if(!member)return alert('Chagua mwanachama');db.schedule.push({id:crypto.randomUUID(),member,day:val('scheduleDay'),date:val('scheduleDate')});save()}
+function render(){
+ ['payMember','missMember','receiveMember','debtMember','scheduleMember'].forEach(options);
+ document.getElementById('mMembers').textContent=db.members.length;
+ document.getElementById('mPaid').textContent=new Set(db.payments.map(x=>x.member)).size;
+ document.getElementById('mMiss').textContent=new Set(db.misses.map(x=>x.member)).size;
+ document.getElementById('mReceived').textContent=db.received.length;
+ document.getElementById('mDebt').textContent=money(db.debts.reduce((a,x)=>a+x.amount,0));
+ document.getElementById('membersTable').innerHTML=table(db.members.map(m=>`<tr><td>${esc(m.name)}</td><td>${esc(m.phone||'—')}</td><td><div class="actions"><button class="btn secondary small" onclick="editMember('${m.id}')">Edit</button><button class="btn danger small" onclick="removeItem('members','${m.id}')">Futa</button></div></td></tr>`),['Jina','Simu','Vitendo']);
+ document.getElementById('paymentsTable').innerHTML=table(db.payments.map(x=>`<tr><td>${esc(memberName(x.member))}</td><td>${esc(x.day)}</td><td>${money(x.amount)}</td><td>${esc(x.date||'—')}</td><td><button class="btn danger small" onclick="removeItem('payments','${x.id}')">Futa</button></td></tr>`),['Mwanachama','Siku','Kiasi','Tarehe','']);
+ document.getElementById('missTable').innerHTML=table(db.misses.map(x=>`<tr><td>${esc(memberName(x.member))}</td><td>${esc(x.day)}</td><td>${esc(x.date||'—')}</td><td>${esc(x.note||'—')}</td><td><button class="btn danger small" onclick="removeItem('misses','${x.id}')">Futa</button></td></tr>`),['Mwanachama','Siku','Tarehe','Maelezo','']);
+ document.getElementById('receivedTable').innerHTML=table(db.received.map(x=>`<tr><td>${esc(memberName(x.member))}</td><td>${money(x.amount)}</td><td>${esc(x.date||'—')}</td><td><button class="btn danger small" onclick="removeItem('received','${x.id}')">Futa</button></td></tr>`),['Mwanachama','Kiasi','Tarehe','']);
+ document.getElementById('debtsTable').innerHTML=table(db.debts.map(x=>`<tr><td>${esc(memberName(x.member))}</td><td>${money(x.amount)}</td><td>${esc(x.note||'—')}</td><td><button class="btn danger small" onclick="removeItem('debts','${x.id}')">Futa</button></td></tr>`),['Mwanachama','Deni','Maelezo','']);
+ document.getElementById('scheduleTable').innerHTML=table(db.schedule.map(x=>`<tr><td>${esc(memberName(x.member))}</td><td>${esc(x.day)}</td><td>${esc(x.date||'—')}</td><td><button class="btn danger small" onclick="removeItem('schedule','${x.id}')">Futa</button></td></tr>`),['Mwanachama','Siku','Tarehe','']);
+}
+document.querySelectorAll('#nav button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active')}));
+document.getElementById('today').textContent=new Date().toLocaleDateString('sw-TZ',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+['payDate','missDate','receiveDate','scheduleDate'].forEach(id=>document.getElementById(id).value=new Date().toISOString().slice(0,10));
+render();
+</script>
+</body>
+</html>
